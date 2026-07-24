@@ -2,19 +2,19 @@
   "name": "Mohammad Faisal Portfolio",
   "short_name": "MF Portfolio",
   "description": "Portfolio website of Mohammad Faisal",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": ".",
+  "scope": ".",
   "display": "standalone",
   "background_color": "#09090c",
   "theme_color": "#09090c",
   "icons": [
     {
-      "src": "/favicon.ico",
+      "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "/favicon.svg",
+      "src": "favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }

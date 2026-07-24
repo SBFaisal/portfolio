@@ -27,8 +27,10 @@ jobs:
       - name: Build application
         run: npm run build
 
-      - name: SPA fallback for GitHub Pages
-        run: cp dist/portfolio/browser/index.html dist/portfolio/browser/404.html
+      - name: Prepare GitHub Pages entrypoint and fallback
+        run: |
+          cp dist/portfolio/browser/index.csr.html dist/portfolio/browser/index.html
+          cp dist/portfolio/browser/index.csr.html dist/portfolio/browser/404.html
 
       - name: Add nojekyll
         run: touch dist/portfolio/browser/.nojekyll

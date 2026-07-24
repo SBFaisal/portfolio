@@ -1,0 +1,20 @@
+<svg width="640" height="760" viewBox="0 0 640 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="96" y1="48" x2="544" y2="712" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6C63FF"/>
+      <stop offset="1" stop-color="#00D4FF"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(320 172) rotate(90) scale(210)">
+      <stop stop-color="#FFFFFF" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="24" y="24" width="592" height="712" rx="48" fill="#0E1018"/>
+  <rect x="24" y="24" width="592" height="712" rx="48" stroke="url(#bg)" stroke-opacity="0.5" stroke-width="2"/>
+  <ellipse cx="320" cy="172" rx="208" ry="164" fill="url(#glow)"/>
+  <circle cx="320" cy="276" r="116" fill="#171C28"/>
+  <circle cx="320" cy="258" r="88" fill="#222A3C"/>
+  <path d="M152 596C152 500.935 229.935 423 325 423C420.065 423 498 500.935 498 596V644H152V596Z" fill="#171C28"/>
+  <path d="M176 604C176 522.932 243.932 455 325 455C406.068 455 474 522.932 474 604V644H176V604Z" fill="#222A3C"/>
+  <rect x="180" y="678" width="290" height="18" rx="9" fill="#3A4762"/>
+</svg>

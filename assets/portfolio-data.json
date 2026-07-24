@@ -24,7 +24,7 @@
     "resumeUrl": "assets/resume.pdf",
     "primaryCta": {
       "label": "Download Resume",
-      "path": "/assets/resume.pdf"
+      "path": "assets/resume.pdf"
     },
     "secondaryCta": {
       "label": "Contact Me",
@@ -210,7 +210,7 @@
         "title": "Analytics Dashboard",
         "summary": "A real-time dashboard with streaming data visualizations and role-aware views.",
         "stack": ["Angular", "RxJS", "Sass"],
-        "previewImage": "/assets/projects/analytics-dashboard.svg",
+        "previewImage": "assets/projects/analytics-dashboard.svg",
         "githubUrl": "https://github.com/your-profile/analytics-dashboard",
         "liveDemoUrl": "https://example.com/analytics-dashboard"
       },
@@ -218,7 +218,7 @@
         "title": "Commerce Experience",
         "summary": "A mobile-first storefront with optimized conversion flow and keyboard-friendly filtering.",
         "stack": ["Angular", "TypeScript", "Node.js"],
-        "previewImage": "/assets/projects/commerce-experience.svg",
+        "previewImage": "assets/projects/commerce-experience.svg",
         "githubUrl": "https://github.com/your-profile/commerce-experience",
         "liveDemoUrl": "https://example.com/commerce-experience"
       },
@@ -226,7 +226,7 @@
         "title": "Learning Platform",
         "summary": "An interactive education product with adaptive paths, progress tracking, and micro-assessments.",
         "stack": ["Angular", "NgRx", "Jest"],
-        "previewImage": "/assets/projects/learning-platform.svg",
+        "previewImage": "assets/projects/learning-platform.svg",
         "githubUrl": "https://github.com/your-profile/learning-platform",
         "liveDemoUrl": "https://example.com/learning-platform"
       }

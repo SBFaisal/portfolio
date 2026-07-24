@@ -1,0 +1,39 @@
+<section class="terminal-section section" aria-labelledby="terminal-title">
+  <header class="terminal-header">
+    <p class="terminal-eyebrow">Interactive</p>
+    <h2 id="terminal-title">Command Terminal</h2>
+    <p>Try commands like help, about, skills, projects, and contact.</p>
+  </header>
+
+  <article class="terminal-shell glass-card gradient-border shadow-smooth" aria-label="Portfolio command terminal">
+    <div class="terminal-top" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <p>portfolio-terminal</p>
+    </div>
+
+    <div class="terminal-screen" role="log" aria-live="polite">
+      @for (line of lines; track $index) {
+        <p class="line" [class.kind-system]="line.kind === 'system'" [class.kind-input]="line.kind === 'input'" [class.kind-output]="line.kind === 'output'" [class.kind-error]="line.kind === 'error'">
+          {{ line.text }}
+        </p>
+      }
+    </div>
+
+    <form class="terminal-input" (submit)="onSubmit($event, commandInput)">
+      <label class="sr-only" for="terminal-command">Terminal command</label>
+      <span class="prompt">visitor&#64;portfolio:~$</span>
+      <input
+        #commandInput
+        id="terminal-command"
+        type="text"
+        spellcheck="false"
+        autocomplete="off"
+        placeholder="Type a command"
+        aria-label="Type terminal command"
+      />
+      <button type="submit">Run</button>
+    </form>
+  </article>
+</section>

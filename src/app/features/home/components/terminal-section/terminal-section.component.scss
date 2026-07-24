@@ -1,0 +1,153 @@
+.terminal-section {
+  margin-top: clamp(1.2rem, 3vw, 2.4rem);
+}
+
+.terminal-header {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 70ch;
+}
+
+.terminal-eyebrow {
+  margin: 0;
+  color: var(--color-accent-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.terminal-header h2,
+.terminal-header p {
+  margin: 0;
+}
+
+.terminal-header p {
+  color: var(--color-text-soft);
+}
+
+.terminal-shell {
+  margin-top: 1rem;
+  overflow: clip;
+}
+
+.terminal-top {
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0 0.82rem;
+  border-bottom: 1px solid var(--color-border-soft);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.terminal-top span {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.terminal-top span:nth-child(1) {
+  background: #ff5f57;
+}
+
+.terminal-top span:nth-child(2) {
+  background: #febc2e;
+}
+
+.terminal-top span:nth-child(3) {
+  background: #28c840;
+}
+
+.terminal-top p {
+  margin: 0 0 0 0.4rem;
+  color: var(--color-text-muted);
+  font-size: 0.74rem;
+}
+
+.terminal-screen {
+  min-height: 220px;
+  max-height: 320px;
+  overflow: auto;
+  padding: 0.9rem;
+  display: grid;
+  align-content: start;
+  gap: 0.4rem;
+  font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, 'Courier New', monospace;
+}
+
+.line {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #c9d0e4;
+  word-break: break-word;
+}
+
+.kind-system {
+  color: #8ea2c8;
+}
+
+.kind-input {
+  color: #e7f8ff;
+}
+
+.kind-output {
+  color: #a0ffe3;
+}
+
+.kind-error {
+  color: #ffad9f;
+}
+
+.terminal-input {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.72rem 0.82rem;
+  border-top: 1px solid var(--color-border-soft);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.prompt {
+  color: #5de4ff;
+  font-size: 0.84rem;
+  font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, 'Courier New', monospace;
+}
+
+.terminal-input input {
+  min-height: 2.05rem;
+  border-radius: 0.52rem;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--color-text);
+  padding: 0 0.62rem;
+}
+
+.terminal-input button {
+  min-height: 2.05rem;
+  border-radius: 0.52rem;
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  background: linear-gradient(120deg, rgba(0, 212, 255, 0.16), rgba(108, 99, 255, 0.14));
+  color: var(--color-text);
+  padding: 0 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.terminal-input button:hover,
+.terminal-input button:focus-visible {
+  border-color: rgba(0, 212, 255, 0.65);
+}
+
+@media (max-width: 720px) {
+  .terminal-input {
+    grid-template-columns: 1fr;
+  }
+
+  .prompt {
+    display: none;
+  }
+}

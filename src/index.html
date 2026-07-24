@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mohammad Faisal | Portfolio</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Mohammad Faisal showcasing Angular, .NET, cloud engineering, and modern product development.">
+  <meta name="author" content="Mohammad Faisal">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#09090c">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mohammad Faisal | Portfolio">
+  <meta name="twitter:description" content="Premium portfolio featuring projects, skills, and engineering experience.">
+  <meta name="twitter:image" content="/assets/profile-avatar.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mohammad Faisal | Portfolio">
+  <meta property="og:description" content="Premium portfolio featuring projects, skills, and engineering experience.">
+  <meta property="og:image" content="/assets/profile-avatar.svg">
+  <meta property="og:url" content="https://your-domain.com/">
+  <link rel="canonical" href="https://your-domain.com/">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.ico">
+  <style>
+    #app-loading-screen {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-content: center;
+      gap: 12px;
+      background: linear-gradient(160deg, #0a0a0a, #111827);
+      color: #f8fafc;
+      z-index: 5000;
+      transition: opacity 260ms ease;
+    }
+
+    #app-loading-screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #app-loading-screen .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      margin: 0 auto;
+      background: linear-gradient(120deg, #00d4ff, #6c63ff);
+      animation: loading-pulse 1s ease-in-out infinite;
+    }
+
+    @keyframes loading-pulse {
+      0%,
+      100% {
+        transform: scale(0.85);
+        opacity: 0.55;
+      }
+
+      50% {
+        transform: scale(1.15);
+        opacity: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #app-loading-screen,
+      #app-loading-screen .dot {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <div id="app-loading-screen" role="status" aria-live="polite" aria-label="Loading portfolio">
+    <div class="dot" aria-hidden="true"></div>
+    <div>Loading portfolio...</div>
+  </div>
+  <app-root></app-root>
+</body>
+</html>

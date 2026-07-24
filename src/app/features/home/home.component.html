@@ -1,0 +1,191 @@
+@if (vm$ | async; as vm) {
+  <section class="hero section" aria-labelledby="hero-title">
+    <div class="aurora aurora-one" aria-hidden="true"></div>
+    <div class="aurora aurora-two" aria-hidden="true"></div>
+    <div class="interactive-grid" aria-hidden="true"></div>
+    <div class="spotlight" aria-hidden="true"></div>
+
+    <div class="particles" aria-hidden="true">
+      @for (particle of particles; track particle) {
+        <span class="particle" [style.--index]="particle"></span>
+      }
+    </div>
+
+    <div class="hero-grid">
+      <div class="hero-left">
+        <p class="eyebrow">{{ vm.hero.eyebrow }}</p>
+        <h1 id="hero-title" class="hero-heading">
+          <span>{{ vm.hero.title }}</span>
+          <strong>{{ vm.name }}</strong>
+        </h1>
+
+        <p class="typewriter" aria-live="polite">
+          <span>{{ displayedRole }}</span>
+          <span class="cursor" aria-hidden="true">|</span>
+        </p>
+
+        <p class="description">{{ vm.hero.description }}</p>
+
+        <div class="hero-actions">
+          <a class="btn primary" [href]="vm.hero.resumeUrl" download>Download Resume</a>
+          <a class="btn ghost" [routerLink]="vm.hero.secondaryCta.path">Contact Me</a>
+        </div>
+
+        <article class="now-playing glass-card gradient-border shadow-smooth" aria-label="Current coding focus">
+          <div class="np-top">
+            <p>{{ vm.nowPlaying.label }}</p>
+            <span class="np-status">{{ vm.nowPlaying.status }}</span>
+          </div>
+
+          <h2>{{ vm.nowPlaying.focusTitle }}</h2>
+          <p class="np-description">{{ vm.nowPlaying.focusDescription }}</p>
+
+          <div class="np-bottom">
+            <ul class="np-stack" aria-label="Current focus stack">
+              @for (item of vm.nowPlaying.stack; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+
+            <div class="np-eq" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <small>{{ vm.nowPlaying.updatedAt }}</small>
+        </article>
+      </div>
+
+      <div class="hero-right" aria-hidden="true">
+        <div class="illustration-wrap glass-card gradient-border shadow-smooth">
+          <div class="glow-ring"></div>
+
+          <div class="device">
+            <div class="device-top">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="device-screen">
+              <div class="line w-80"></div>
+              <div class="line w-55"></div>
+              <div class="line w-72"></div>
+              <div class="line w-48"></div>
+            </div>
+          </div>
+
+          @for (skill of vm.floatingSkills; track skill.label) {
+            <div
+              class="float-panel"
+              [class]="'float-panel ' + skill.panelClass"
+              [style.top]="skill.top"
+              [style.left]="skill.left"
+              [style.animation-delay]="skill.delay"
+              [style.--chip-depth]="skill.depth"
+              [style.color]="skill.color"
+            >
+              {{ skill.label }}
+            </div>
+          }
+          <div class="base-shadow"></div>
+        </div>
+      </div>
+    </div>
+
+    <a class="scroll-indicator" [routerLink]="'/about'" aria-label="Scroll to about section">
+      <span>Scroll</span>
+      <span class="mouse"><span class="dot"></span></span>
+    </a>
+  </section>
+
+  <app-terminal-section></app-terminal-section>
+
+  <section class="services section" aria-labelledby="services-title">
+    <header class="services-header">
+      <p class="services-eyebrow">{{ vm.services.eyebrow }}</p>
+      <h2 id="services-title">{{ vm.services.title }}</h2>
+      <p>{{ vm.services.description }}</p>
+    </header>
+
+    <div class="services-grid">
+      @for (service of vm.services.items; track service.title; let i = $index) {
+        <article class="service-card glass-card gradient-border shadow-smooth" [style.animation-delay.ms]="80 + (i * 70)">
+          <div class="service-icon" [class]="'service-icon icon-' + service.icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="github section" aria-labelledby="github-title">
+    <header class="github-header">
+      <p class="github-eyebrow">{{ vm.github.eyebrow }}</p>
+      <h2 id="github-title">{{ vm.github.title }}</h2>
+      <p>{{ vm.github.description }}</p>
+    </header>
+
+    <div class="github-grid">
+      <article class="calendar-card glass-card gradient-border shadow-smooth">
+        <h3>Contribution Calendar</h3>
+        <div class="calendar-placeholder" aria-label="Contribution calendar placeholder">
+          @for (cell of vm.github.contributionCalendar; track $index) {
+            <span class="calendar-cell" [style.--level]="cell"></span>
+          }
+        </div>
+      </article>
+
+      <div class="stats-grid-gh">
+        <article class="metric-card glass-card gradient-border shadow-smooth">
+          <p>Repositories</p>
+          <strong>{{ githubCounterValues.repositories }}</strong>
+        </article>
+        <article class="metric-card glass-card gradient-border shadow-smooth">
+          <p>Stars</p>
+          <strong>{{ githubCounterValues.totalStars }}</strong>
+        </article>
+        <article class="metric-card glass-card gradient-border shadow-smooth">
+          <p>Followers</p>
+          <strong>{{ githubCounterValues.followers }}</strong>
+        </article>
+      </div>
+
+      <article class="languages-card glass-card gradient-border shadow-smooth">
+        <h3>Languages</h3>
+        <ul>
+          @for (language of vm.github.topLanguages; track language.name) {
+            <li>
+              <div class="lang-row">
+                <span>{{ language.name }}</span>
+                <span>{{ language.percent }}%</span>
+              </div>
+              <span class="lang-bar"><span [style.width.%]="language.percent"></span></span>
+            </li>
+          }
+        </ul>
+      </article>
+    </div>
+
+    <div class="repo-grid">
+      @for (repository of vm.github.featuredRepositories; track repository.name) {
+        <article class="repo-card glass-card gradient-border shadow-smooth">
+          <h3>{{ repository.name }}</h3>
+          <p>{{ repository.description }}</p>
+          <div class="repo-meta">
+            <span>{{ repository.language }}</span>
+            <span>{{ repository.stars }} stars</span>
+          </div>
+          <a [href]="repository.url" target="_blank" rel="noopener noreferrer">View Repository</a>
+        </article>
+      }
+    </div>
+  </section>
+}

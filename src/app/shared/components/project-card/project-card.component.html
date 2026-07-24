@@ -1,0 +1,12 @@
+<article class="project-card glass-card gradient-border shadow-smooth">
+  <h2>{{ title() }}</h2>
+  <p>{{ summary() }}</p>
+
+  <ul class="stack" aria-label="Technology stack">
+    @for (item of stack(); track item) {
+      <li>{{ item }}</li>
+    }
+  </ul>
+
+  <a [href]="link()" target="_blank" rel="noopener noreferrer">View Project</a>
+</article>

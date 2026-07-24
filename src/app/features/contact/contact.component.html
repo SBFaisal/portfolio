@@ -1,0 +1,119 @@
+@if (vm$ | async; as vm) {
+  <section class="section" aria-labelledby="contact-title">
+    <app-section-heading [eyebrow]="vm.eyebrow" [title]="vm.title" [description]="vm.description"></app-section-heading>
+
+    <div class="contact-layout">
+      <aside class="social-card glass-card gradient-border shadow-smooth" aria-label="Social links">
+        <h2>Connect</h2>
+        <p>Reach out through your preferred channel.</p>
+
+        <div class="social-list">
+          @for (channel of vm.socialChannels; track channel.label) {
+            <a
+              class="social-item"
+              [href]="channel.href"
+              [target]="channel.external ? '_blank' : null"
+              [rel]="channel.external ? 'noopener noreferrer' : null"
+              [attr.aria-label]="channel.label"
+            >
+              <span class="social-icon" aria-hidden="true">
+                @switch (channel.label) {
+                  @case ('LinkedIn') {
+                    <svg viewBox="0 0 24 24" focusable="false"><path d="M6.6 8.1H3.4V20h3.2V8.1Zm.2-3.7A1.9 1.9 0 1 0 3 4.4a1.9 1.9 0 0 0 3.8 0ZM20.6 13.1c0-3.2-1.7-5-4.1-5-1.9 0-2.7 1-3.2 1.8V8.1h-3.1V20h3.2v-5.9c0-1.5.3-2.9 2.1-2.9 1.7 0 1.7 1.6 1.7 3V20H21v-6.9Z"/></svg>
+                  }
+                  @case ('GitHub') {
+                    <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.9c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 3 .8.1-.7.4-1.1.7-1.3-2.2-.2-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.7s.8-.3 2.8 1a9.8 9.8 0 0 1 5.1 0c2-1.3 2.8-1 2.8-1 .6 1.4.2 2.5.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.8-4.7 5.1.4.3.7 1 .7 2V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>
+                  }
+                  @default {
+                    <svg viewBox="0 0 24 24" focusable="false"><path d="M3 6.8C3 5.8 3.8 5 4.8 5h14.4c1 0 1.8.8 1.8 1.8v10.4c0 1-.8 1.8-1.8 1.8H4.8c-1 0-1.8-.8-1.8-1.8V6.8Zm1.9.1 7.1 5.1 7.1-5.1H4.9Zm14.2 10.2V8.9L12 14 4.9 8.9v8.2h14.2Z"/></svg>
+                  }
+                }
+              </span>
+              <span>
+                <strong>{{ channel.label }}</strong>
+                <small>{{ channel.value }}</small>
+              </span>
+            </a>
+          }
+        </div>
+      </aside>
+
+      <article class="form-card glass-card gradient-border shadow-smooth">
+        <h2>Send a Message</h2>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+          <label>
+            <span>Name</span>
+            <input
+              type="text"
+              formControlName="name"
+              placeholder="Your name"
+              autocomplete="name"
+              [attr.aria-invalid]="showError('name')"
+              aria-required="true"
+            />
+            @if (showError('name')) {
+              <small class="error" role="alert">{{ getError('name') }}</small>
+            }
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input
+              type="email"
+              formControlName="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              [attr.aria-invalid]="showError('email')"
+              aria-required="true"
+            />
+            @if (showError('email')) {
+              <small class="error" role="alert">{{ getError('email') }}</small>
+            }
+          </label>
+
+          <label>
+            <span>Subject</span>
+            <input
+              type="text"
+              formControlName="subject"
+              placeholder="Project discussion"
+              autocomplete="off"
+              [attr.aria-invalid]="showError('subject')"
+              aria-required="true"
+            />
+            @if (showError('subject')) {
+              <small class="error" role="alert">{{ getError('subject') }}</small>
+            }
+          </label>
+
+          <label>
+            <span>Message</span>
+            <textarea
+              rows="5"
+              formControlName="message"
+              placeholder="Tell me about your project goals..."
+              [attr.aria-invalid]="showError('message')"
+              aria-required="true"
+            ></textarea>
+            @if (showError('message')) {
+              <small class="error" role="alert">{{ getError('message') }}</small>
+            }
+          </label>
+
+          <button type="submit" class="submit-btn" [class.is-submitting]="isSubmitting" [disabled]="isSubmitting">
+            @if (isSubmitting) {
+              <span class="spinner" aria-hidden="true"></span>
+              <span>Sending...</span>
+            } @else {
+              <span>Send Message</span>
+            }
+          </button>
+
+          @if (submitSuccess) {
+            <p class="success" role="status" aria-live="polite">Your message has been queued successfully.</p>
+          }
+        </form>
+      </article>
+    </div>
+  </section>
+}

@@ -1,0 +1,109 @@
+@if (vm$ | async; as vm) {
+  <section class="section" aria-labelledby="projects-title">
+    <app-section-heading [eyebrow]="vm.eyebrow" [title]="vm.title" [description]="vm.description"></app-section-heading>
+
+    <div class="project-controls glass-card gradient-border shadow-smooth" role="search" aria-label="Project filters">
+      <label class="search-field" for="project-search">
+        <span>Search</span>
+        <input
+          id="project-search"
+          type="search"
+          [value]="searchTerm"
+          (input)="onSearchChange($event)"
+          placeholder="Search projects, stack, keywords"
+          aria-label="Search projects"
+          autocomplete="off"
+        />
+      </label>
+
+      <div class="filter-group" role="group" aria-label="Filter by technology">
+        @for (technology of vm.technologies; track technology) {
+          <button
+            type="button"
+            [class.is-active]="activeTechnology === technology"
+            (click)="setActiveTechnology(technology)"
+            [attr.aria-pressed]="activeTechnology === technology"
+          >
+            {{ technology }}
+          </button>
+        }
+      </div>
+    </div>
+
+    @if (getFilteredProjects(vm.items); as filteredProjects) {
+      @if (filteredProjects.length > 0) {
+        <div class="project-grid">
+          @for (project of filteredProjects; track project.title) {
+            <article
+              class="project-card glass-card shadow-smooth"
+              (mousemove)="onCardPointerMove($event)"
+              (mouseleave)="onCardPointerLeave($event)"
+            >
+              <div class="card-border" aria-hidden="true"></div>
+
+              <figure class="project-media">
+                <img
+                  [src]="project.previewImage"
+                  [alt]="project.title + ' preview image'"
+                  loading="lazy"
+                  decoding="async"
+                  width="1280"
+                  height="720"
+                />
+              </figure>
+
+              <div class="card-body">
+                <h2>{{ project.title }}</h2>
+                <p>{{ project.summary }}</p>
+
+                <ul class="stack" aria-label="Technology stack">
+                  @for (item of project.stack; track item) {
+                    <li>{{ item }}</li>
+                  }
+                </ul>
+
+                <div class="card-actions">
+                  <button type="button" (click)="openProjectDetails(project, $event)">View Details</button>
+                  <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a [href]="project.liveDemoUrl" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+      } @else {
+        <p class="empty-state">No projects match your current search and technology filter.</p>
+      }
+    }
+  </section>
+
+  @if (selectedProject; as project) {
+    <div class="project-modal" role="dialog" aria-modal="true" [attr.aria-label]="project.title + ' project details'" (click)="closeProjectDetails()">
+      <div class="modal-backdrop" aria-hidden="true"></div>
+
+      <article class="modal-panel glass-card gradient-border shadow-smooth" (click)="$event.stopPropagation()">
+        <button class="modal-close" type="button" (click)="closeProjectDetails()" aria-label="Close project details">Close</button>
+
+        <figure class="modal-media">
+          <img [src]="project.previewImage" [alt]="project.title + ' preview image'" decoding="async" />
+        </figure>
+
+        <div class="modal-content">
+          <h2>{{ project.title }}</h2>
+          <p>{{ project.summary }}</p>
+
+          <ul class="stack" aria-label="Technology stack">
+            @for (item of project.stack; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+
+          <div class="card-actions">
+            <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a [href]="project.liveDemoUrl" target="_blank" rel="noopener noreferrer">Live Demo</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  }
+}

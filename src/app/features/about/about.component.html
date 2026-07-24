@@ -1,0 +1,118 @@
+@if (vm$ | async; as vm) {
+  <section class="section about-section" aria-labelledby="about-title">
+    <app-section-heading
+      [eyebrow]="vm.about.eyebrow"
+      [title]="vm.about.title"
+      [description]="vm.about.description"
+    ></app-section-heading>
+
+    <div class="about-grid">
+      <figure class="profile-card glass-card gradient-border shadow-smooth reveal-item">
+        <img
+          [src]="vm.about.profileImage"
+          [alt]="vm.name + ' profile image'"
+          loading="lazy"
+          decoding="async"
+          width="260"
+          height="260"
+        />
+      </figure>
+
+      <article class="story-card glass-card gradient-border shadow-smooth reveal-item">
+        <h2>Short Story</h2>
+        <p>{{ vm.about.shortStory }}</p>
+
+        <h3>Career Summary</h3>
+        <p>{{ vm.about.careerSummary }}</p>
+      </article>
+    </div>
+
+    <div class="stats-grid">
+      @for (stat of vm.about.quickStats; track stat.label; let i = $index) {
+        <article class="stat-card glass-card gradient-border shadow-smooth reveal-item" [style.animation-delay.ms]="120 + (i * 90)">
+          <p class="stat-label">{{ stat.label }}</p>
+          <p class="stat-value">{{ getStatValue(stat, i) }}</p>
+        </article>
+      }
+    </div>
+
+    <section class="experience-block reveal-item" aria-labelledby="experience-title">
+      <app-section-heading
+        [eyebrow]="vm.experience.eyebrow"
+        [title]="vm.experience.title"
+        [description]="vm.experience.description"
+      ></app-section-heading>
+
+      <div class="experience-timeline" [style.--timeline-progress]="timelineProgress">
+        <span class="timeline-line" aria-hidden="true"></span>
+
+        <div class="timeline-items">
+          @for (item of vm.experience.items; track item.company + item.duration; let i = $index) {
+            <article class="timeline-item glass-card gradient-border shadow-smooth" [class.in-view]="timelineItemStates[i]">
+              <span class="timeline-dot" aria-hidden="true"></span>
+
+              <header class="timeline-header">
+                <p class="timeline-duration">{{ item.duration }}</p>
+                <h3>{{ item.role }}</h3>
+                <p class="timeline-company">{{ item.company }}</p>
+              </header>
+
+              <ul class="timeline-responsibilities">
+                @for (responsibility of item.responsibilities; track responsibility) {
+                  <li>{{ responsibility }}</li>
+                }
+              </ul>
+
+              <div class="timeline-tech">
+                @for (technology of item.technologies; track technology) {
+                  <span class="tech-chip">{{ technology }}</span>
+                }
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+
+    <div class="skills-block reveal-item">
+      <app-section-heading
+        [eyebrow]="vm.technologies.eyebrow"
+        [title]="vm.technologies.title"
+        [description]="vm.technologies.description"
+      ></app-section-heading>
+
+      <div class="skills-grid">
+        @for (group of vm.technologies.groups; track group.category; let groupIndex = $index) {
+          <article class="skill-card glass-card gradient-border shadow-smooth" [style.animation-delay.ms]="160 + (groupIndex * 100)">
+            <h3>{{ group.category }}</h3>
+
+            <ul>
+              @for (skill of group.items; track skill.name) {
+                <li>
+                  <div class="skill-row">
+                    <span>{{ skill.name }}</span>
+                    <span>{{ skill.level }}%</span>
+                  </div>
+                  <div class="progress-track" role="meter" [attr.aria-valuemin]="0" [attr.aria-valuemax]="100" [attr.aria-valuenow]="skill.level" [attr.aria-label]="skill.name + ' proficiency'">
+                    <span class="progress-fill" [style.--level]="skill.level"></span>
+                  </div>
+                </li>
+              }
+            </ul>
+          </article>
+        }
+      </div>
+
+      <div class="badge-marquee" aria-label="Technology badges">
+        <div class="badge-track">
+          @for (badge of vm.skillBadges; track badge + '-a') {
+            <span class="badge-pill">{{ badge }}</span>
+          }
+          @for (badge of vm.skillBadges; track badge + '-b') {
+            <span class="badge-pill" aria-hidden="true">{{ badge }}</span>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+}

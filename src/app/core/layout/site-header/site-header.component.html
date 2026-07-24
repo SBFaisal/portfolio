@@ -1,0 +1,74 @@
+<header class="site-header" [class.hidden]="isHidden">
+  <div class="progress-indicator" [style.width.%]="scrollProgress"></div>
+
+  @if (vm$ | async; as vm) {
+    <div class="inner glass-card gradient-border shadow-smooth">
+      <a class="brand" routerLink="/home" aria-label="Go to homepage">{{ vm.brand }}</a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        [class.open]="isMenuOpen"
+        [attr.aria-expanded]="isMenuOpen"
+        aria-controls="primary-navigation"
+        aria-haspopup="menu"
+        aria-label="Toggle navigation menu"
+        (click)="toggleMenu()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="primary-navigation" class="nav" [class.open]="isMenuOpen" aria-label="Primary">
+        <ul class="nav-list">
+          @for (item of vm.navItems; track item.path) {
+            <li>
+              <a
+                [routerLink]="item.path"
+                routerLinkActive="active-section"
+                [routerLinkActiveOptions]="{ exact: item.path === '/home' }"
+                (click)="onNavClick()"
+              >
+                {{ item.label }}
+              </a>
+            </li>
+          }
+
+          <li class="cta-item">
+            <a class="cta-link" routerLink="/contact" routerLinkActive="active-cta" (click)="onNavClick()">Let's Talk</a>
+          </li>
+
+          <li class="accent-switcher-item" aria-label="Theme accent switcher">
+            <div class="accent-switcher" role="group" aria-label="Accent theme">
+              <button
+                type="button"
+                class="accent-btn accent-purple"
+                [class.active]="activeAccent === 'purple'"
+                [attr.aria-pressed]="activeAccent === 'purple'"
+                aria-label="Switch to purple accent"
+                (click)="setAccentTheme('purple')"
+              ></button>
+              <button
+                type="button"
+                class="accent-btn accent-cyan"
+                [class.active]="activeAccent === 'cyan'"
+                [attr.aria-pressed]="activeAccent === 'cyan'"
+                aria-label="Switch to cyan accent"
+                (click)="setAccentTheme('cyan')"
+              ></button>
+              <button
+                type="button"
+                class="accent-btn accent-emerald"
+                [class.active]="activeAccent === 'emerald'"
+                [attr.aria-pressed]="activeAccent === 'emerald'"
+                aria-label="Switch to emerald accent"
+                (click)="setAccentTheme('emerald')"
+              ></button>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  }
+</header>

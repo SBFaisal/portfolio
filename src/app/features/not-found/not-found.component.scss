@@ -1,0 +1,134 @@
+.not-found {
+  min-height: 58vh;
+  display: grid;
+  place-content: center;
+  width: 100%;
+}
+
+.terminal-shell {
+  width: min(860px, 100%);
+  border-radius: calc(var(--radius-lg) + 0.05rem);
+  overflow: clip;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  background:
+    radial-gradient(circle at 20% -10%, rgba(0, 212, 255, 0.12), transparent 40%),
+    linear-gradient(180deg, rgba(8, 12, 20, 0.96), rgba(6, 8, 14, 0.98));
+}
+
+.terminal-topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.2rem;
+  padding: 0 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+}
+
+.dot {
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 50%;
+}
+
+.dot-close {
+  background: #ff5f57;
+}
+
+.dot-min {
+  background: #febc2e;
+}
+
+.dot-max {
+  background: #28c840;
+}
+
+.terminal-topbar p {
+  margin: 0 0 0 0.45rem;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.terminal-body {
+  padding: clamp(1rem, 2.5vw, 1.4rem);
+  display: grid;
+  gap: 0.7rem;
+}
+
+.line {
+  margin: 0;
+  color: #b8c0d7;
+  font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-size: clamp(0.86rem, 1.65vw, 0.98rem);
+  line-height: 1.5;
+}
+
+.prompt {
+  color: #5de4ff;
+}
+
+.error {
+  margin: 0;
+  font-size: clamp(1.28rem, 2.6vw, 1.9rem);
+  font-weight: 800;
+  color: #ff9b8f;
+  text-shadow: 0 0 16px rgba(255, 95, 87, 0.2);
+}
+
+.actions {
+  margin-top: 0.15rem;
+}
+
+.btn-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.4rem;
+  padding: 0 0.95rem;
+  border-radius: 0.7rem;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, 'Courier New', monospace;
+  color: #d9f7ff;
+  border: 1px solid rgba(0, 212, 255, 0.34);
+  background: linear-gradient(120deg, rgba(0, 212, 255, 0.14), rgba(0, 212, 255, 0.06));
+  position: relative;
+}
+
+.btn-home:hover,
+.btn-home:focus-visible {
+  border-color: rgba(93, 228, 255, 0.7);
+  box-shadow: 0 0 14px rgba(0, 212, 255, 0.22);
+}
+
+.btn-home::after {
+  content: '';
+  display: inline-block;
+  width: 0.45rem;
+  height: 1rem;
+  margin-left: 0.45rem;
+  background: rgba(93, 228, 255, 0.9);
+  animation: terminal-cursor 1s steps(1) infinite;
+}
+
+@keyframes terminal-cursor {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .terminal-topbar {
+    padding: 0 0.65rem;
+  }
+
+  .terminal-body {
+    gap: 0.6rem;
+    padding: 0.85rem;
+  }
+
+  .line {
+    font-size: 0.84rem;
+  }
+}

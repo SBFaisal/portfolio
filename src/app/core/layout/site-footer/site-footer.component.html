@@ -1,0 +1,67 @@
+<footer class="site-footer">
+  @if (vm$ | async; as vm) {
+    <div class="inner fade-in">
+      <div class="brand-block">
+        <a class="logo" [routerLink]="'/home'" aria-label="Go to home">{{ vm.brand }}</a>
+        <p>© {{ year }} {{ vm.owner }}. {{ vm.tagline }}.</p>
+      </div>
+
+      <nav class="quick-links" aria-label="Footer quick links">
+        <h3>Quick Links</h3>
+        <div>
+          @for (link of vm.quickLinks; track link.path) {
+            <a [routerLink]="link.path">{{ link.label }}</a>
+          }
+        </div>
+      </nav>
+
+      <div class="social-links" aria-label="Social links">
+        <h3>Social</h3>
+        <div>
+          @for (link of vm.socialLinks; track link.label) {
+            <a
+              class="social-link"
+              [href]="link.href"
+              [target]="link.external ? '_blank' : null"
+              [rel]="link.external ? 'noopener noreferrer' : null"
+              [attr.aria-label]="link.label"
+            >
+              @switch (link.label) {
+                @case ('LinkedIn') {
+                  <span class="icon">in</span>
+                }
+                @case ('GitHub') {
+                  <span class="icon">gh</span>
+                }
+                @default {
+                  <span class="icon">&#64;</span>
+                }
+              }
+              <span>{{ link.label }}</span>
+            </a>
+          }
+        </div>
+      </div>
+
+      <button
+        class="back-top"
+        type="button"
+        (click)="scrollToTop()"
+        [attr.aria-label]="'Back to top, page scroll ' + roundedScrollProgress + ' percent'"
+      >
+        <svg class="progress-ring" viewBox="0 0 44 44" aria-hidden="true" focusable="false">
+          <circle class="progress-ring-track" cx="22" cy="22" r="18"></circle>
+          <circle
+            class="progress-ring-value"
+            cx="22"
+            cy="22"
+            r="18"
+            [attr.stroke-dasharray]="113.097"
+            [attr.stroke-dashoffset]="ringOffset"
+          ></circle>
+        </svg>
+        <span class="top-label">↑ Top</span>
+      </button>
+    </div>
+  }
+</footer>

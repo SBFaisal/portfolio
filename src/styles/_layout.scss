@@ -1,0 +1,21 @@
+.container {
+  width: min(var(--container-max), 100% - (var(--container-pad) * 2));
+  margin-inline: auto;
+}
+
+.section {
+  margin-block: clamp(var(--space-6), 6vw, var(--space-8));
+  animation: section-enter var(--ease-premium) both;
+}
+
+@keyframes section-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

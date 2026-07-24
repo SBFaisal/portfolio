@@ -1,0 +1,63 @@
+:host {
+	display: block;
+}
+
+.skip-link {
+	position: absolute;
+	left: 1rem;
+	top: -4rem;
+	z-index: 1000;
+	padding: 0.7rem 1rem;
+	border-radius: 0.75rem;
+	background: var(--color-accent);
+	color: var(--color-bg-strong);
+	font-weight: 700;
+	text-decoration: none;
+	transition: top var(--ease-swift), transform var(--ease-swift);
+}
+
+.skip-link:focus-visible {
+	top: 1rem;
+	transform: translateY(2px);
+}
+
+.app-shell {
+	min-height: 100dvh;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: minmax(0, 1fr);
+	overflow-x: hidden;
+	position: relative;
+}
+
+.app-shell > * {
+	min-width: 0;
+}
+
+.main-content {
+	min-width: 0;
+	padding: clamp(6rem, 9vw, 7.8rem) 0 clamp(2.5rem, 8vw, 6rem);
+}
+
+.cursor-follower {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	border: 1px solid rgba(0, 212, 255, 0.6);
+	background: radial-gradient(circle, rgba(0, 212, 255, 0.35) 0%, rgba(108, 99, 255, 0.18) 55%, transparent 72%);
+	pointer-events: none;
+	z-index: 999;
+	transform: translate3d(var(--mouse-x), var(--mouse-y), 0) translate3d(-50%, -50%, 0);
+	transition: transform 130ms linear, opacity var(--ease-swift);
+	opacity: 0.75;
+	mix-blend-mode: screen;
+}
+
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+	.cursor-follower {
+		display: none;
+	}
+}

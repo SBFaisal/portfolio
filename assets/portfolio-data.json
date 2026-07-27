@@ -20,11 +20,11 @@
     "title": "Hi, I'm Mohammad Faisal",
     "description": "I specialize in Angular, .NET, Azure, and modern web technologies to create secure, high-performance applications.",
     "intro": "I build modern web applications focused on speed, accessibility, and conversion-ready user experiences.",
-    "typewriterRoles": ["Full-Stack Developer", "Angular Developer", ".NET Developer", "Backend Engineer"],
-    "resumeUrl": "assets/resume.pdf",
+    "typewriterRoles": ["Full-Stack Developer", "Angular Developer", ".NET Developer", "Backend Engineer", "Senior Software Engineer"],
+    "resumeUrl": "https://drive.google.com/file/d/1vSCGZwwgI2qsV1dSnjHIwDfykJvHBKyo/view?usp=sharing",
     "primaryCta": {
       "label": "Download Resume",
-      "path": "assets/resume.pdf"
+      "path": "https://drive.google.com/file/d/1vSCGZwwgI2qsV1dSnjHIwDfykJvHBKyo/view?usp=sharing"
     },
     "secondaryCta": {
       "label": "Contact Me",
@@ -38,6 +38,10 @@
       {
         "label": "C#",
         "panelClass": "panel-CSharp"
+      },
+      {
+        "label": "Entity Framework",
+        "panelClass": "panel-entity-framework"
       },
       {
         "label": "SQL",
@@ -70,16 +74,16 @@
     "focusTitle": "Refining motion system + production polish",
     "focusDescription": "Optimizing interaction quality, accessibility, and deployment readiness across the Angular portfolio.",
     "status": "In deep-focus mode",
-    "stack": [".NET", "SQL", "Azure", "Angular"],
+    "stack": [".NET", "SQL", "AI", "Angular", "Azure"],
     "updatedAt": "Updated 5m ago"
   },
   "about": {
     "eyebrow": "About",
     "title": "Crafting thoughtful digital experiences",
-    "description": "A quick snapshot of my journey, focus, and impact across frontend and full-stack product development.",
+    "description": "A quick snapshot of my journey, focus, and impact across backend and full-stack product development.",
     "profileImage": "assets/profile-avatar.svg",
-    "shortStory": "I started building interfaces out of curiosity and quickly grew into a product-minded engineer who cares deeply about user experience, performance, and maintainable architecture.",
-    "careerSummary": "Over the years, I have worked across SaaS, e-commerce, and data products, leading Angular implementations, collaborating with cross-functional teams, and shipping measurable business outcomes.",
+    "shortStory": "I started my journey with a curiosity for how software solves real-world problems. Over the past four years, I've been building and maintaining enterprise applications using .NET and Angular, with a focus on writing clean, maintainable code and continuously improving my skills.",
+    "careerSummary": "Over the past four years, I have contributed to enterprise laboratory management applications by developing new features, building REST APIs, enhancing existing functionality, and delivering reliable solutions using .NET, Angular, and SQL Server in Agile teams.",
     "quickStats": [
       {
         "label": "Years Experience",
@@ -92,9 +96,8 @@
         "suffix": "+"
       },
       {
-        "label": "Technologies",
-        "value": 10,
-        "suffix": "+"
+        "label": "Promotions",
+        "value": 2
       },
       {
         "label": "Location",
@@ -105,61 +108,59 @@
   "experience": {
     "eyebrow": "Experience",
     "title": "Recent experience",
-    "description": "Dummy experience records used to power the UI from JSON.",
+    "description": "My growth at Eurofins IT Solutions India, contributing to enterprise laboratory management applications across web, desktop, and customer-facing platforms.",
     "items": [
       {
         "role": "Senior Software Engineer",
         "company": "Eurofins IT Solutions India",
         "duration": "01-Apr-2026 - Present",
         "responsibilities": [
-          "Led migration from legacy Angular modules to standalone architecture.",
-          "Improved Core Web Vitals by 38 percent for key customer journeys.",
-          "Mentored a team of 5 engineers on accessibility and performance practices."
+            "Developing and enhancing features across Angular, ASP.NET MVC, and WPF applications.",
+            "Designing and maintaining REST APIs to support business workflows and system integrations.",
+            "Collaborating with cross-functional teams to deliver reliable solutions and production enhancements."
         ],
         "technologies": [
-          "C#",
-          ".NET",
-          "SQL",
-          "Azure",
-          "Azure DevOps",
-          "TypeScript",
-          "Angular"
+            "C#",
+            ".NET",
+            "ASP.NET Core",
+            "Angular",
+            "SQL Server",
+            "Azure DevOps"
         ]
       },
       {
         "role": "Software Engineer",
         "company": "Eurofins IT Solutions India",
-        "duration": "01-Apr-2023 - 31-Mar-2026",
+        "duration": "01-Apr-2024 - 31-Mar-2026",
         "responsibilities": [
-          "Built reusable design system components consumed by 7 product squads.",
-          "Implemented route-level code splitting and smart prefetching.",
-          "Collaborated with product and design to increase checkout conversion by 14 percent."
+            "Developed new application features based on business requirements.",
+            "Improved API reliability through retry mechanisms and better error handling.",
+            "Implemented OAuth 2.0 authentication and JWT-based authorization for secure Web APIs."
         ],
         "technologies": [
             "C#",
-            ".NET",
-            "SQL",
-            ".Net 6",
-            "Azure DevOps",
-            "WPF"
+            ".NET 6",
+            "ASP.NET Core",
+            "Angular",
+            "Entity Framework Core",
+            "SQL Server"
         ]
       },
       {
         "role": "Associate Software Engineer",
         "company": "Eurofins IT Solutions India",
-        "duration": "22-Aug-2022 - 31-Mar-2023",
+        "duration": "22-Aug-2022 - 31-Mar-2024",
         "responsibilities": [
-          "Built reusable design system components consumed by 7 product squads.",
-          "Implemented route-level code splitting and smart prefetching.",
-          "Collaborated with product and design to increase checkout conversion by 14 percent."
+            "Developed and maintained application modules using .NET and SQL Server.",
+            "Worked on REST APIs and database enhancements for enterprise applications.",
+            "Collaborated with senior developers to deliver features and resolve production issues."
         ],
         "technologies": [
             "C#",
-            ".NET",
-            "SQL",
-            ".Net 6",
-            "Azure DevOps",
-            "WPF"
+            ".NET 6",
+            "ASP.NET MVC",
+            "WPF",
+            "SQL Server"
         ]
       }
     ]
@@ -173,30 +174,32 @@
         "category": "Frontend",
         "items": [
           { "name": "Angular", "level": 60 },
-          { "name": "TypeScript", "level": 50 },
-          { "name": "HTML", "level": 80 },
-          { "name": "CSS", "level": 60 },
-          { "name": "Bootstrap", "level": 70 }
+          { "name": "TypeScript", "level": 80 },
+          { "name": "HTML", "level": 90 },
+          { "name": "CSS", "level": 80 },
+          { "name": "Bootstrap", "level": 65 }
         ]
       },
       {
         "category": "Backend",
         "items": [
           { "name": ".NET", "level": 90 },
-          { "name": "ASP.NET Core", "level": 87 },
-          { "name": "Entity Framework", "level": 84 },
-          { "name": "SQL Server", "level": 86 },
-          { "name": "Azure", "level": 80 }
+          { "name": "ASP.NET Core", "level": 80 },
+          { "name": "Entity Framework", "level": 82 },
+          { "name": "SQL Server", "level": 90 },
+          { "name": "REST API", "level": 75 }
         ]
       },
       {
         "category": "Tools",
         "items": [
-          { "name": "Git", "level": 94 },
-          { "name": "Docker", "level": 82 },
+          { "name": "Azure DevOps", "level": 70 },
+          { "name": "Git", "level": 90 },
           { "name": "Postman", "level": 90 },
           { "name": "Swagger", "level": 85 },
-          { "name": "Visual Studio", "level": 89 }
+          { "name": "SSMS", "level": 90 },
+          { "name": "Visual Studio", "level": 95 },
+          { "name": "Visual Studio Code", "level": 90 }
         ]
       }
     ]
@@ -204,23 +207,23 @@
   "projects": {
     "eyebrow": "Work",
     "title": "Selected projects",
-    "description": "A snapshot of product-focused Angular work across dashboards, commerce, and learning experiences.",
+    "description": "A collection of projects showcasing my experience in full-stack development, AI integration, and modern web applications.",
     "items": [
       {
-        "title": "Analytics Dashboard",
-        "summary": "A real-time dashboard with streaming data visualizations and role-aware views.",
-        "stack": ["Angular", "RxJS", "Sass"],
-        "previewImage": "assets/projects/analytics-dashboard.svg",
-        "githubUrl": "https://github.com/your-profile/analytics-dashboard",
-        "liveDemoUrl": "https://example.com/analytics-dashboard"
+        "title": "AI Code Roast",
+        "summary": "An AI-powered code review application that analyzes source code, provides technical feedback, identifies potential issues, suggests improvements, and generates personality-based code roasts using large language models.",
+        "stack": ["Angular", ".NET", "OpenAI", "Docker"],
+        "previewImage": "assets/projects/code-roast.png",
+        "githubUrl": "https://github.com/SBFaisal/CodeRoast",
+        "liveDemoUrl": "https://coderoastclient.onrender.com"
       },
       {
-        "title": "Commerce Experience",
-        "summary": "A mobile-first storefront with optimized conversion flow and keyboard-friendly filtering.",
-        "stack": ["Angular", "TypeScript", "Node.js"],
+        "title": "Company Portal",
+        "summary": "A dashboard to manage projects, internal resources and employee data.",
+        "stack": ["Angular", "TypeScript", "Bootstrap"],
         "previewImage": "assets/projects/commerce-experience.svg",
-        "githubUrl": "https://github.com/your-profile/commerce-experience",
-        "liveDemoUrl": "https://example.com/commerce-experience"
+        "githubUrl": "https://github.com/SBFaisal/CompanyPortal",
+        "liveDemoUrl": "https://example.com/company-portal"
       },
       {
         "title": "Learning Platform",
@@ -266,36 +269,37 @@
   },
   "github": {
     "eyebrow": "GitHub",
-    "title": "Open-source footprint and engineering activity",
+    "title": "Github footprint and engineering activity",
     "description": "A mock snapshot of contribution activity, featured repositories, and language focus.",
-    "followers": 312,
-    "totalStars": 1284,
-    "repositories": 46,
+    "followers": 10,
+    "totalStars": 40,
+    "repositories": 23,
     "contributionCalendar": [
       0,1,2,1,0,2,1, 1,2,3,2,1,2,1, 0,1,2,3,2,1,0, 1,2,3,4,3,2,1,
       1,1,2,3,2,1,1, 0,1,2,2,3,2,1, 1,2,3,4,3,2,1, 0,1,2,3,2,1,0,
       1,1,2,3,3,2,1, 0,1,2,2,1,1,0, 1,2,3,4,3,2,1, 0,1,2,1,0,1,0
     ],
     "topLanguages": [
-      { "name": "TypeScript", "percent": 48 },
-      { "name": "C#", "percent": 28 },
-      { "name": "SCSS", "percent": 14 },
-      { "name": "SQL", "percent": 10 }
+      { "name": "C#", "percent": 40 },
+      { "name": "TypeScript", "percent": 20 },
+      { "name": "SQL", "percent": 30 },
+      { "name": "HTML", "percent": 5 },
+      { "name": "CSS", "percent": 5 }
     ],
     "featuredRepositories": [
       {
-        "name": "angular-enterprise-starter",
-        "description": "Production-ready Angular starter with standalone architecture, auth guards, and testing setup.",
+        "name": "landing-page-starter",
+        "description": "Flow Fix Landing page for Plumbing Services, with responsive design.",
         "stars": 426,
-        "language": "TypeScript",
-        "url": "https://github.com/your-profile/angular-enterprise-starter"
+        "language": "html, css, Bootstrap",
+        "url": "https://github.com/SBFaisal/FlowFix_LandingPage"
       },
       {
-        "name": "dotnet-api-blueprint",
+        "name": "SpendSmart",
         "description": "Clean Architecture API blueprint with CQRS, FluentValidation, and observability wiring.",
         "stars": 351,
-        "language": "C#",
-        "url": "https://github.com/your-profile/dotnet-api-blueprint"
+        "language": ".NET, C#, MVC, SQL Server",
+        "url": "https://github.com/SBFaisal/SpendSmart"
       },
       {
         "name": "cloud-delivery-pipelines",
@@ -309,24 +313,24 @@
   "contact": {
     "eyebrow": "Contact",
     "title": "Let us build something meaningful",
-    "description": "Available for frontend engineering, Angular consulting, and product collaboration.",
+    "description": "Available for backend engineering, C# consulting, and product collaboration.",
     "channels": [
       {
         "label": "Email",
-        "value": "hello@example.com",
-        "href": "mailto:hello@example.com",
+        "value": "faisalsb0786@gmail.com",
+        "href": "mailto:faisalsb0786@gmail.com",
         "external": false
       },
       {
         "label": "LinkedIn",
-        "value": "linkedin.com/in/your-profile",
-        "href": "https://www.linkedin.com/in/your-profile",
+        "value": "linkedin.com/in/mohammad-faisal-4899a0197",
+        "href": "https://in.linkedin.com/in/mohammad-faisal-4899a0197",
         "external": true
       },
       {
         "label": "GitHub",
-        "value": "github.com/your-profile",
-        "href": "https://github.com/your-profile",
+        "value": "github.com/SBFaisal",
+        "href": "https://github.com/SBFaisal",
         "external": true
       }
     ]
